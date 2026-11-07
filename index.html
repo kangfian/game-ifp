@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>GestureQuiz IFP</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head><body>
+<header><b>✋ GestureQuiz IFP</b><span id="st">Kamera: belum aktif</span><button id="modeBtn">Mode: Gesture</button></header>
+<section id="beranda" class="on"><h1>Kuis Gerak Tangan</h1>
+<select id="quiz"></select><p id="qinfo"></p>
+<div class="row"><input id="t1" value="Garuda" maxlength="16"><input id="t2" value="Rajawali" maxlength="16"></div>
+<button id="start" class="go">MULAI</button><small>Tim 1 berdiri di kiri, Tim 2 di kanan. Tahan tangan di jawaban ±1 detik.</small></section>
+<section id="arena"><video id="v" playsinline muted></video>
+<div class="score a"><small id="n1"></small><b id="p1">0</b><em id="k1"></em></div>
+<div class="score b"><small id="n2"></small><b id="p2">0</b><em id="k2"></em></div>
+<div id="q"><div id="meta"><span id="mt"></span> ⏱ <b id="tm"></b></div><h2 id="qt"></h2></div>
+<div id="opts"></div><div id="c1" class="cur a"></div><div id="c2" class="cur b"></div><div id="msg"></div></section>
+<section id="hasil"></section>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+<script src="js/config.js"></script><script src="js/api.js"></script><script src="js/app.js"></script></body></html>
