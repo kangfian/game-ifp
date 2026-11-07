@@ -46,3 +46,4 @@ body.adm{overflow:auto;height:auto;min-height:100vh}.adm #login{display:flex;fle
 .adm nav button{margin-top:auto;padding:12px;border:0;border-radius:16px;background:#EF4444;color:#fff;font:700 18px 'Plus Jakarta Sans';cursor:pointer}
 .adm main{flex:1;padding:32px;display:flex;flex-direction:column;gap:12px;max-width:900px}
 @media(max-width:700px){.adm #app{flex-direction:column}.adm nav{width:auto;flex-direction:row;flex-wrap:wrap}}
+.btn2{padding:10px 18px;border-radius:99px;background:#2B3A9E;color:#fff;cursor:pointer;font-size:16px}
