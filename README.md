@@ -23,3 +23,6 @@ Lalu GitHub → Settings → Pages → Deploy from branch → `main` / root. Buk
 
 ## C. Di IFP
 Buka di Chrome (HTTPS), izinkan kamera, berdiri 1,5–2,5 m. Tim 1 di kiri, Tim 2 di kanan. Jika kamera gagal, tombol **Mode** beralih ke sentuh.
+
+## D. Panel Admin
+Klik **⚙ Admin** di pojok atas. Kata sandi dibuat otomatis saat `setupAppEnvironment` dan tampil di Execution Log (ubah di Project Settings → Script Properties → `ADMIN_PASSWORD`). Setelah mengubah Kode.gs, deploy ulang (New version).

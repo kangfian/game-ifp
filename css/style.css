@@ -27,3 +27,14 @@ h1{font-size:64px;color:#F5C518}select,input{padding:14px 20px;border-radius:16p
 .res{display:flex;gap:48px;font-family:'Space Grotesk'}.res div{padding:24px 40px;border-radius:32px;background:rgba(26,36,92,.65)}.res b{font-size:80px;display:block}
 table{border-collapse:collapse;font-size:16px}td,th{padding:6px 16px;border-bottom:1px solid #2f334b}
 @media(max-width:900px){h1{font-size:36px}.score{width:30%}.score b{font-size:40px}#q{left:34%;right:34%}#qt{font-size:18px}#opts{grid-template-columns:1fr;gap:12px}.opt{min-height:64px;font-size:16px}.opt svg{width:48px}}
+
+#q{left:32%;right:32%;top:16px;padding:10px 20px;border-radius:24px}#qt{font-size:24px;line-height:1.25}#meta{font-size:13px}#tm{font-size:22px}
+.score{width:18%;padding:12px 16px}.score b{font-size:56px}
+.zone{position:absolute;top:0;bottom:0;width:50%}.zone.a{left:0;background:linear-gradient(90deg,rgba(2,132,199,.22),transparent)}.zone.b{right:0;background:linear-gradient(270deg,rgba(234,88,12,.22),transparent)}
+#div{position:absolute;left:50%;top:0;bottom:0;width:6px;margin-left:-3px;background:linear-gradient(#F5C518,#fff,#F5C518);box-shadow:0 0 24px #F5C518;opacity:.85;z-index:2}
+#div span{position:absolute;top:110px;white-space:nowrap;font:700 18px 'Space Grotesk';background:#0e1228;padding:4px 12px;border-radius:99px}#div span:first-child{right:16px;color:#38BDF8}#div span:last-child{left:16px;color:#F97316}
+#opts{position:absolute;inset:0;display:block;pointer-events:none;overflow:hidden;z-index:3}
+.bub{position:absolute;left:0;top:0;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;background:rgba(32,45,120,.9);border:4px solid #F5C518;text-align:center;pointer-events:auto;will-change:transform;font-size:20px;line-height:1.1;padding:10px}
+.bub svg{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible}.bub b{font-size:14px;color:#FFD13B}.bub.a .rg{stroke:#38BDF8}.bub.b .rg{stroke:#F97316}
+.bub.ok{background:#10B981!important}.bub.bad{background:#EF4444!important;opacity:.6}
+#admin.on{overflow:auto}#adm{max-width:900px;margin:auto;display:flex;flex-direction:column;gap:12px}.card{padding:12px 16px;border-radius:16px;background:#161a30;display:flex;gap:12px;align-items:center}textarea{padding:12px;border-radius:16px;border:2px solid #454652;background:#161a30;color:#fff;font:inherit;font-size:16px}
