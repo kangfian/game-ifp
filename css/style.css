@@ -38,3 +38,11 @@ table{border-collapse:collapse;font-size:16px}td,th{padding:6px 16px;border-bott
 .bub svg{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible}.bub b{font-size:14px;color:#FFD13B}.bub.a .rg{stroke:#38BDF8}.bub.b .rg{stroke:#F97316}
 .bub.ok{background:#10B981!important}.bub.bad{background:#EF4444!important;opacity:.6}
 #admin.on{overflow:auto}#adm{max-width:900px;margin:auto;display:flex;flex-direction:column;gap:12px}.card{padding:12px 16px;border-radius:16px;background:#161a30;display:flex;gap:12px;align-items:center}textarea{padding:12px;border-radius:16px;border:2px solid #454652;background:#161a30;color:#fff;font:inherit;font-size:16px}
+
+#q{z-index:6;background:rgba(22,30,80,.94)}
+body.adm{overflow:auto;height:auto;min-height:100vh}.adm #login{display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;min-height:100vh}.adm [hidden]{display:none!important}
+.adm #app{display:flex;min-height:100vh}.adm nav{width:220px;flex:none;background:#0e1228;padding:24px 16px;display:flex;flex-direction:column;gap:8px}
+.adm nav b{font:700 24px 'Space Grotesk';margin-bottom:16px}.adm nav a{padding:12px 16px;border-radius:16px;color:#bcc3ff;text-decoration:none;cursor:pointer}.adm nav a.on{background:#2B3A9E;color:#fff}
+.adm nav button{margin-top:auto;padding:12px;border:0;border-radius:16px;background:#EF4444;color:#fff;font:700 18px 'Plus Jakarta Sans';cursor:pointer}
+.adm main{flex:1;padding:32px;display:flex;flex-direction:column;gap:12px;max-width:900px}
+@media(max-width:700px){.adm #app{flex-direction:column}.adm nav{width:auto;flex-direction:row;flex-wrap:wrap}}

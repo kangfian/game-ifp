@@ -87,26 +87,4 @@ $('opts').onclick = e => { const b = e.target.closest('.bub'); if(b && S.z) answ
 $('start').onclick = start; $('quiz').onchange = info; $('modeBtn').onclick = () => setTouch(!touch);
 loadQuizzes(); API.flush(); requestAnimationFrame(tick);
 
-// ---- Panel Admin (kata sandi disimpan di Script Properties server, bukan di kode)
-CONFIG.DWELL_MS = +localStorage.getItem('gq_dwell') || CONFIG.DWELL_MS;
-let PW = '';
-const loginBox = m => { $('adm').innerHTML = `<h2>Login Admin</h2><p>${esc(m||'')}</p><input id="pw" type="password" placeholder="Kata sandi admin"><button class="btn" id="login">Masuk</button>`;
-  $('login').onclick = () => { PW = $('pw').value; adminLoad(); }; };
-$('adminBtn').onclick = () => { go('admin'); PW ? adminLoad() : loginBox(); };
-async function adminLoad(){
-  $('adm').innerHTML = '<p>Memuat…</p>'; const r = await API.admin('adminList',PW);
-  if(!r || !r.success){ PW = ''; return loginBox(r ? r.message : 'Server belum tersambung (cek GAS_URL)'); }
-  $('adm').innerHTML = `<h2>Panel Admin</h2><h3>Pengaturan</h3><label>Waktu tahan gestur: <input id="dw" type="range" min="500" max="2500" step="100" value="${CONFIG.DWELL_MS}"> <b id="dwv">${CONFIG.DWELL_MS} ms</b></label>
-  <h3>Kuis (${r.quizzes.length})</h3>${r.quizzes.map(z => `<div class="card">${esc(z.judul)} · ${z.soal.length} soal · ${z.waktu}s <button data-del="${esc(z.id)}">Hapus</button></div>`).join('')}
-  <h3>Tambah Kuis</h3><input id="nj" placeholder="Judul kuis"><input id="nw" type="number" value="15" style="min-width:100px"><textarea id="ns" rows="6" placeholder="Satu soal per baris:&#10;Pertanyaan | A | B | C | D | benar (A-D)"></textarea><button class="btn" id="nsave">Simpan Kuis</button>
-  <h3>Riwayat Sesi</h3><button id="csv">Unduh CSV</button><table>${r.sessions.map(s => `<tr><td>${esc(String(s.tanggal).slice(0,10))}</td><td>${esc(s.tim1)} ${s.skor1}</td><td>${esc(s.tim2)} ${s.skor2}</td><td>${esc(s.pemenang)}</td></tr>`).join('')}</table>`;
-  $('dw').oninput = e => { CONFIG.DWELL_MS = +e.target.value; localStorage.setItem('gq_dwell',e.target.value); $('dwv').textContent = e.target.value+' ms'; };
-  document.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => { if(!confirm('Hapus kuis ini?')) return; await API.admin('adminDeleteQuiz',PW,b.dataset.del); await refresh(); });
-  $('nsave').onclick = async () => { const soal = [], bad = [];
-    $('ns').value.split('\n').filter(l => l.trim()).forEach((l,n) => { const p = l.split('|').map(x => x.trim()), a = 'ABCD'.indexOf((p[5]||'').toUpperCase()); if(p.length < 6 || a < 0) bad.push(n+1); else soal.push({q:p[0],o:p.slice(1,5),a}); });
-    if(!$('nj').value.trim() || !soal.length || bad.length) return alert(bad.length ? 'Format salah di baris: '+bad.join(', ') : 'Isi judul dan minimal 1 soal');
-    const r2 = await API.admin('adminSaveQuiz',PW,{judul:$('nj').value.trim(),waktu:$('nw').value,soal}); if(r2 && r2.success) await refresh(); else alert('Gagal menyimpan'); };
-  $('csv').onclick = () => { const k = ['id','id_kuis','tim1','tim2','skor1','skor2','benar1','benar2','total','pemenang','tanggal'];
-    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([[k.join(',')].concat(r.sessions.map(s => k.map(x => '"'+String(s[x]).replace(/"/g,'""')+'"').join(','))).join('\n')],{type:'text/csv'})); a.download = 'riwayat-sesi.csv'; a.click(); };
-}
-async function refresh(){ localStorage.removeItem('gq_quiz'); await loadQuizzes(); adminLoad(); }
+CONFIG.DWELL_MS = +localStorage.getItem('gq_dwell') || CONFIG.DWELL_MS;   // diatur dari admin.html
